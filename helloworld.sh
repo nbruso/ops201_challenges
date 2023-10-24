@@ -5,7 +5,11 @@ echo "Hello World"
 # Date of latest revision:      10/24/2023
 # Purpose:                      To Say Hello
 
-# Declaration of variables
+my_variable="I am working perfectly!" 
+
+echo $my_variable
+
+# Declaration of variables: 1
 
 # Declaration of functions
 
