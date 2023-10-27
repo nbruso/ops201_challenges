@@ -2,7 +2,7 @@
 
 # Script Name:                  Arrays Practice
 # Author:                       Dominique Bruso
-# Date of latest revision:      10/2265/2023
+# Date of latest revision:      10/26/2023
 # Purpose:                      To practice making arrays
 # Execution:                    bash arrays.sh or ./arrays.sh
 
