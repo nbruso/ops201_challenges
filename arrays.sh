@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Script Name:                  Arrays Pracitce
+# Script Name:                  Arrays Practice
 # Author:                       Dominique Bruso
 # Date of latest revision:      10/2265/2023
 # Purpose:                      To practice making arrays
