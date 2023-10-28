@@ -6,7 +6,7 @@
 # Purpose:                      To practice making arrays
 # Execution:                    bash arrays.sh or ./arrays.sh
 
-# # Create the four directories
+# Create the four directories
 mkdir dir1 dir2 dir3 dir4
 
 directories=("dir1" "dir2" "dir3" "dir4")
