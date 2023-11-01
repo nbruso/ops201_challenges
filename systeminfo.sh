@@ -11,18 +11,18 @@
 
 # Check if the script is run as root
 if [ "$(id -u)" -ne 0 ]; then
-  echo "This script must be run as root (use sudo)."
+  echo "This script must be run as root (use sudo or execute as root)."
   exit 1
 fi
 
-# Function to display component information
+# Define a function to display component information
 display_component_info() {
   echo "==== $1 ===="
-  lshw -c $2 | grep -E 'description|product|vendor|physical id|bus info|width|clock|capabilities|configuration|resources' | sed 's/^[[:space:]]*//'
+  lshw -c "$2" | grep -E 'description|product|vendor|physical id|bus info|width|clock|capabilities|configuration|resources' | sed 's/^[[:space:]]*//'
   echo
 }
 
-# Display information for each component
+# Display information for each specified component
 display_component_info "Computer Name" system
 display_component_info "CPU" cpu
 display_component_info "RAM" memory
