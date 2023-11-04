@@ -85,4 +85,4 @@
 
 ### Format-Table -AutoSize: This cmdlet is used to format the retrieved events as a table for display in the console. The -AutoSize parameter adjusts the column widths to fit the data, making it easier to read.
 
-### source: 
+### source: OpenAI. (2023). ChatGPT [Large language model]. https://chat.openai.com
