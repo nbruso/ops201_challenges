@@ -7,6 +7,8 @@
 # Execution:                    ./ops301d14_challenge01.sh
 
 
+# Declaration of Variables
+
 # Get the current date and time
 timestamp=$(date +"%Y%m%d_%H%M%S")
 
@@ -15,7 +17,10 @@ echo "$timestamp - Starting script..."
 
 # Copy /var/log/syslog to the current working directory
 echo "$timestamp - Copying /var/log/syslog to the current working directory..."
-cp /var/log/syslog "./syslog_copy_$timestamp.txt"
+cp /var/log/syslog "./syslog_$timestamp.txt"
+
+# Append the current date and time to the filename
+echo "$timestamp" >> "syslog_$timestamp.txt"
 
 # Log the end of the script
 echo "$timestamp - Script completed."
