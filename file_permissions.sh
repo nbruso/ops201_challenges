@@ -28,4 +28,4 @@ chmod -R "$permissions_number" "$directory_path"
 echo "Here are the updated permissions"
 ls -al "$directory_path"
 
-# sources: https://chat.openai.com/share/c2232e16-a527-4be4-a4d8-5e96d2ee222b
+# sources: https://chat.openai.com/share/c2232e16-a527-4be4-a4d8-5e96d2ee222b; https://github.com/codefellows/seattle-ops-301d14/blob/main/class-03/challenges/DEMO.md
