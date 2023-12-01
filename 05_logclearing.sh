@@ -5,7 +5,7 @@
 # Date of latest revision:      12/01/2023
 # Purpose:                      To practice log clearing
 # Execution:                    bash 05_logclearing.sh or ./05_logclearing.sh
-# Sources:                      https://chat.openai.com/share/a4ee55d6-fd5a-4b28-b40d-3ae817bea40e; 
+# Sources:                      https://chat.openai.com/share/a4ee55d6-fd5a-4b28-b40d-3ae817bea40e; https://github.com/codefellows/seattle-ops-301d14/blob/main/class-05/challenges/DEMO.md
 
 #!/bin/bash
 
@@ -27,30 +27,34 @@ echo "Syslog file size before compression: $syslog_file_size"
 echo "Wtmp file size before compression: $wtmp_file_size"
 
 # Pause for user to read information
-read -p "Press Enter to continue..."
+read -n 1 -s -r -p "Press any key to continue..."
 
 # Clear the screen
 clear
 
 # Compress the contents of the log files to a backup directory
 echo "Compressing files"
-zip -q -r "$backup_directory/syslog-$TIMESTAMP.zip" /var/log/syslog
-zip -q -r "$backup_directory/wtmp-$TIMESTAMP.zip" /var/log/wtmp
+gzip -c /var/log/syslog > "$backup_directory/syslog-$TIMESTAMP.gz"
+gzip -c /var/log/wtmp > "$backup_directory/wtmp-$TIMESTAMP.gz"
+
+# Clear the contents of the log files
+echo -n > /var/log/syslog
+echo -n > /var/log/wtmp
 
 # Pause for user to read information
-read -p "Press Enter to continue..."
+read -n 1 -s -r -p "Press any key to continue..."
 
 # Clear the screen
 clear
 
 # Print to the screen the file size of the compressed files
-syslog_compressed_size=$(stat -c %s "$backup_directory/syslog-$TIMESTAMP.zip")
-wtmp_compressed_size=$(stat -c %s "$backup_directory/wtmp-$TIMESTAMP.zip")
+syslog_compressed_size=$(stat -c %s "$backup_directory/syslog-$TIMESTAMP.gz")
+wtmp_compressed_size=$(stat -c %s "$backup_directory/wtmp-$TIMESTAMP.gz")
 echo "Syslog compressed file size: $syslog_compressed_size"
 echo "Wtmp compressed file size: $wtmp_compressed_size"
 
 # Pause for user to read information
-read -p "Press Enter to continue..."
+read -n 1 -s -r -p "Press any key to continue..."
 
 # Clear the screen
 clear
@@ -60,7 +64,7 @@ echo "File size before compression: Syslog=$syslog_file_size, Wtmp=$wtmp_file_si
 echo "File size after compression: Syslog=$syslog_compressed_size, Wtmp=$wtmp_compressed_size"
 
 # Pause for user to read information
-read -p "Press Enter to continue..."
+read -n 1 -s -r -p "Press any key to continue..."
 
 # Clear the screen
 clear
