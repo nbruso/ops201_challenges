@@ -5,7 +5,7 @@
 # Date of latest revision:      11/29/2023
 # Purpose:                      To practice conditionals
 # Execution:                    bash 04_conditionals.sh or ./04_conditionals.sh
-# Sources                       https://chat.openai.com/share/0f6fc8b6-0734-4fc5-82cc-821a2c26ed57; https://linuxhint.com/bash_conditional_statement/
+# Sources                       https://chat.openai.com/share/0f6fc8b6-0734-4fc5-82cc-821a2c26ed57; https://linuxhint.com/bash_conditional_statement/; https://github.com/codefellows/seattle-ops-301d14/blob/main/class-04/challenges/DEMO.md
 
 # Declaration of variables
 ip_addresses=$(ip addr show | grep 'inet' | awk '{print $2}')
