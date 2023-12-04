@@ -4,7 +4,7 @@
 # Author:                       Dominique Bruso
 # Date of latest revision:      12/01/2023
 # Purpose:                      To practice log clearing
-# Execution:                    bash 05_logclearing.sh or ./05_logclearing.sh
+# Execution:                    sudo bash 05_logclearing.sh or sudo ./05_logclearing.sh
 # Sources:                      https://chat.openai.com/share/a4ee55d6-fd5a-4b28-b40d-3ae817bea40e; https://github.com/codefellows/seattle-ops-301d14/blob/main/class-05/challenges/DEMO.md
 
 #!/bin/bash
