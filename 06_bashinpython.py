@@ -1,8 +1,16 @@
+# Script Name:                  Ops Challenge 06: Bash in Python          
+# Author:                       Dominique Bruso
+# Date of latest revision:      12/04/2023
+# Purpose:                      To practice python
+# Execution:                    python2 06_bashinpython.py
+# Source: https://chat.openai.com/share/f8ad1684-8cb1-434d-8efe-e1cbf022df51
+
+
 # The Python module “os” must be utilized.
 import os
 
 # At least three variables must be declared and referenced in Python.
-username = "JohnDoe"
+username = "dominiquebruso"
 network_interface = "eth0"
 hardware_type = "disk"
 
