@@ -3,7 +3,7 @@
 # Date of latest revision:      12/06/2023
 # Purpose:                      To practice python
 # Execution:                    python lab08.py
-# Source:
+# Source:                       https://chat.openai.com/share/bb5eb39c-3595-4437-999e-f8b0057ead04
 
 import time
 
