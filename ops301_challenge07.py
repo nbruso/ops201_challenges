@@ -7,7 +7,14 @@
 
 #!/usr/bin/env python3
 
+# Import libraries
 import os
+
+# Declaration of variables
+directory_path = None  # Initialize the variable
+
+# Read user input here into a variable
+directory_path = input("Enter the directory path: ")
 
 # Declaration of functions
 def generate_directory_structure(user_path):
@@ -25,9 +32,5 @@ def generate_directory_structure(user_path):
         print(files)
 
 # Main
-if __name__ == "__main__":
-    # Read user input here into a variable
-    user_path = input("Enter the directory path: ")
-
-    # Call the function with user input
-    generate_directory_structure(user_path)
+# Pass the variable into the function here
+generate_directory_structure(directory_path)
