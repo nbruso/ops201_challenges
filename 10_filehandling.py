@@ -3,7 +3,7 @@
 # Date of latest revision:      12/08/2023
 # Purpose:                      To practice python
 # Execution:                    python3 10_filehandling.py
-# Source:                       https://github.com/codefellows/seattle-ops-301d14/tree/main/class-10/challenges; 
+# Source:                       https://github.com/codefellows/seattle-ops-301d14/tree/main/class-10/challenges; https://chat.openai.com/share/a00b4222-8df0-4730-9bb4-0614154836af
 
 
 
