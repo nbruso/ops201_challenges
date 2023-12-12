@@ -8,9 +8,11 @@
 import psutil
 
 def get_cpu_times():
+    print("Fetching CPU times...")
     return psutil.cpu_times()
 
 def print_cpu_info(cpu_times):
+    print("Printing CPU info...")
     print(f"Time spent by normal processes executing in user mode: {cpu_times.user}")
     print(f"Time spent by processes executing in kernel mode: {cpu_times.system}")
     print(f"Time when the system was idle: {cpu_times.idle}")
