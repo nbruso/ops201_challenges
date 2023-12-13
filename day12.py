@@ -12,6 +12,10 @@ import requests
 # Prompt the user to type a string input as the variable for your destination URL
 url = input("Enter the destination URL: ")
 
+# Check if the URL starts with 'http://' or 'https://', and add it if missing
+if not url.startswith(('http://', 'https://')):
+    url = 'http://' + url
+
 # Prompt the user to select an HTTP Method
 http_method = input("Select an HTTP Method (GET, POST, PUT, DELETE, HEAD, PATCH, OPTIONS): ").upper()
 
@@ -51,5 +55,3 @@ status_mapping = {
 
 status_code = response.status_code
 print(f"\nTranslated Status: {status_mapping.get(status_code, 'Unknown')}")
-
-# You can add more status codes to the 'status_mapping' dictionary as needed.
