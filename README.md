@@ -1,4 +1,4 @@
-# Ops 201 Challenges Readme
+# Ops Challenges Readme
 
 # Learning Journey in Ops 201 - Shell Scripting Practice
 
