@@ -5,69 +5,75 @@
 
 from cryptography.fernet import Fernet
 
-# Function to generate a secret key for encryption
-def generate_key():
-    return Fernet.generate_key()
+# Function to generate and save a secret key for encryption
+def generate_and_save_key():
+    key = Fernet.generate_key()
+    with open("secret.key", "wb") as key_file:
+        key_file.write(key)
+    return key
+
+# Function to load the saved encryption key
+def load_key():
+    return open("secret.key", "rb").read()
 
 # Function to encrypt a file
 def encrypt_file(filename, key):
     f = Fernet(key)
-    with open(filename, "rb") as file: # Open the file to read data in binary mode
-        file_data = file.read() # Read the file data
-    encrypted_data = f.encrypt(file_data) # Encrypt the file data
-    with open(filename, "wb") as file: # Open the file to write data in binary mode
-        file.write(encrypted_data) # Write the encrypted data back to the file
+    with open(filename, "rb") as file:
+        file_data = file.read()
+    encrypted_data = f.encrypt(file_data)
+    with open(filename, "wb") as file:
+        file.write(encrypted_data)
 
 # Function to decrypt a file
 def decrypt_file(filename, key):
     f = Fernet(key)
-    with open(filename, "rb") as file: # Open the file to read encrypted data in binary mode
-        encrypted_data = file.read() # Read the encrypted file data
-    decrypted_data = f.decrypt(encrypted_data) # Decrypt the file data
-    with open(filename, "wb") as file: # Open the file to write decrypted data in binary mode
-        file.write(decrypted_data) # Write the decrypted data back to the file
+    with open(filename, "rb") as file:
+        encrypted_data = file.read()
+    decrypted_data = f.decrypt(encrypted_data)
+    with open(filename, "wb") as file:
+        file.write(decrypted_data)
 
 # Function to encrypt a message
 def encrypt_message(message, key):
     f = Fernet(key)
-    return f.encrypt(message.encode()) # Encrypts and returns the encoded message
+    return f.encrypt(message.encode())
 
 # Function to decrypt a message
 def decrypt_message(encrypted_message, key):
     f = Fernet(key)
-    return f.decrypt(encrypted_message).decode() # Decrypts and decodes the message back to string
+    return f.decrypt(encrypted_message).decode()
 
 # Main function
 def main():
-    key = generate_key() # Generate an encryption key
+    # Check if a key file already exists
+    try:
+        key = load_key()
+    except FileNotFoundError:
+        key = generate_and_save_key()  # Generate and save a new key if it doesn't exist
 
-    # Ask the user to select a mode
     mode = int(input("Select a mode:\n1. Encrypt a file\n2. Decrypt a file\n3. Encrypt a message\n4. Decrypt a message\n"))
 
-    # Handle file encryption/decryption
     if mode == 1 or mode == 2:
-        filepath = input("Enter the filepath: ") # Get the file path from the user
+        filepath = input("Enter the filepath: ")
         if mode == 1:
-            encrypt_file(filepath, key) # Encrypt the file
+            encrypt_file(filepath, key)
             print("File encrypted.")
         elif mode == 2:
-            decrypt_file(filepath, key) # Decrypt the file
+            decrypt_file(filepath, key)
             print("File decrypted.")
-
-    # Handle message encryption/decryption
     elif mode == 3 or mode == 4:
-        message = input("Enter the message: ") # Get the message from the user
+        message = input("Enter the message: ")
         if mode == 3:
-            encrypted = encrypt_message(message, key) # Encrypt the message
+            encrypted = encrypt_message(message, key)
             print("Encrypted message:", encrypted)
         elif mode == 4:
-            decrypted = decrypt_message(message, key) # Decrypt the message
+            decrypted = decrypt_message(message, key)
             print("Decrypted message:", decrypted)
-
     else:
         print("Invalid mode selected.")
 
-# Ensure the script runs only when executed directly
 if __name__ == "__main__":
     main()
+
 
