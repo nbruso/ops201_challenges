@@ -1,7 +1,7 @@
 # OPS401D10  Ops Challenge 02
 # 01/09/2024
 # Dominique Bruso
-# source: https://github.com/codefellows/seattle-cybersecurity-401d10/tree/main/class-02/challenges; https://chat.openai.com/share/1e59f557-425c-4ecb-8dd9-04610bff6295; https://github.com/codefellows/seattle-cybersecurity-401d10/tree/main/class-03/challenges; 
+# source: https://github.com/codefellows/seattle-cybersecurity-401d10/tree/main/class-02/challenges; https://chat.openai.com/share/1e59f557-425c-4ecb-8dd9-04610bff6295; https://github.com/codefellows/seattle-cybersecurity-401d10/tree/main/class-03/challenges; https://chat.openai.com/share/a6f03d94-ef92-4f20-89a2-e430556e0518
 
 
 # Import necessary modules
