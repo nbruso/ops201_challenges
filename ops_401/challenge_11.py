@@ -15,8 +15,8 @@ import sys
 from scapy.all import sr1, IP, TCP
 # Importing necessary functions and classes from Scapy for packet crafting and sending
 
-host = "192.168.0.161"
-# Setting the target host IP address
+host = "scanme.nmap.org"
+# Setting the target host
 
 port_range = [20, 21, 22, 23, 80, 443]
 # Defining a range or specific set of ports to scan
