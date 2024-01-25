@@ -2,7 +2,7 @@
 # 01/24/2024
 # Dominique Bruso
 # Purpose: practice python scripting 
-# source: https://web.archive.org/web/20180826164313/https://infinityquest.com/python-tutorials/generating-a-range-of-ip-addresses-from-a-cidr-address-in-python/; https://chat.openai.com/share/48471212-55c9-46af-a98c-26d5cd1f7239; https://github.com/codefellows/seattle-cybersecurity-401d10/blob/main/class-12/challenges/DEMO.md
+# source: https://github.com/codefellows/seattle-cybersecurity-401d10/blob/main/class-13/challenges/DEMO.md
 
 #!/usr/bin/env python3
 
