@@ -2,7 +2,7 @@
 # 01/26/2024
 # Dominique Bruso
 # Purpose: practice python scripting 
-# source: https://chat.openai.com/share/21cc496d-08bc-416d-b2a3-c3c5c45ead39
+# source: https://chat.openai.com/share/21cc496d-08bc-416d-b2a3-c3c5c45ead39; https://github.com/codefellows/seattle-cybersecurity-401d10/blob/main/class-16/challenges/DEMO.md
 
 #!/usr/bin/env python3
 # The above line is a shebang line which tells the system how to execute
