@@ -3,6 +3,8 @@
 # Dominique Bruso
 # source: https://www.pythoncentral.io/recursive-file-and-directory-manipulation-in-python-part-1/; https://chat.openai.com/share/a844a1bd-7c25-45b2-ac75-bab228d1ff20
 
+#!/usr/bin/env python3
+
 import os
 from cryptography.fernet import Fernet, InvalidToken
 
