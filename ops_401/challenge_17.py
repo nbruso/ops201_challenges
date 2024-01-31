@@ -2,7 +2,7 @@
 # 01/30/2024
 # Dominique Bruso
 # Purpose: practice python scripting 
-# source: https://github.com/codefellows/seattle-cybersecurity-401d10/blob/main/class-17/challenges/DEMO.md
+# source: https://github.com/codefellows/seattle-cybersecurity-401d10/blob/main/class-17/challenges/DEMO.md; https://chat.openai.com/share/be6493e4-4018-415b-a397-917cb3b47a95
 
 #!/usr/bin/env python3
 # Shebang line to tell the system to execute this script with Python 3.
