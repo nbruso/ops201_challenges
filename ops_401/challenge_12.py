@@ -6,10 +6,9 @@
 
 #!/usr/bin/env python3
 
-# Importing the scapy library for network operations
-from scapy.all import *
-# Importing the ipaddress library for handling IP addresses
-import ipaddress  
+# Importing required libraries
+from scapy.all import *  # Scapy for network operations
+import ipaddress  # Used for handling IP addresses
 
 # Function to get a list of IP addresses in a network
 def list_all_addresses(network):
@@ -23,46 +22,65 @@ def list_all_addresses(network):
         print(f"Error: {e}")
         return []
 
+# Function to scan a range of ports on a specific IP
+def scan_ports(ip, start_port, end_port):
+    for port in range(start_port, end_port + 1):
+        # Creating a TCP packet with a SYN flag
+        packet = IP(dst=ip)/TCP(dport=port, flags='S')
+        # Sending the packet and waiting for a response
+        response = sr1(packet, timeout=1, verbose=0)
+        # Checking if the response contains a TCP layer and SYN-ACK flags
+        if response and response.haslayer(TCP) and response.getlayer(TCP).flags & 0x12:
+            print(f"Port {port} is open on {ip}")
+        else:
+            print(f"Port {port} is closed or filtered on {ip}")
+
 # Main function of the script
 def main():
     # Ask the user to choose between two modes
     choice = input("Choose mode:\n1. TCP Port Range Scanner\n2. ICMP Ping Sweep\n3. Exit\nEnter choice (1, 2, or 3): ")
     
     if choice == '1':
-        # Placeholder for TCP Port Range Scanner functionality
-        # Add the specific TCP Port Range Scanner code here
-        print("TCP Port Range Scanner mode selected. Functionality to be implemented.")
-    
+        # TCP Port Range Scanner functionality
+        target_ip = input("Enter the target IP address: ")
+        start_port = int(input("Enter the start port number: "))
+        end_port = int(input("Enter the end port number: "))
+        scan_ports(target_ip, start_port, end_port)
+
     elif choice == '2':
-        # If user chooses ICMP Ping Sweep
+        # ICMP Ping Sweep
         network = input("Enter the network in CIDR format (e.g., 192.168.1.0/24): ")
-        # Get a list of all IP addresses in the given network
         addresses = list_all_addresses(network)
         if addresses:
             print("Performing ICMP Ping Sweep...")
+            online_hosts = 0
             for address in addresses:
-                # Create an ICMP packet destined for the current address
                 packet = IP(dst=str(address))/ICMP()
-                # Send the packet and wait for a response (with a timeout of 1 second)
                 response = sr1(packet, timeout=1, verbose=0)
-                # If a response is received, the host is up
                 if response:
-                    print(f"{address} is up")
-                # If no response is received, the host is down
+                    if response.getlayer(ICMP).type == 3:
+                        code = response.getlayer(ICMP).code
+                        if code in [1, 2, 3, 9, 10, 13]:
+                            print(f"{address} is actively blocking ICMP traffic.")
+                        else:
+                            print(f"{address} is responding.")
+                    else:
+                        print(f"{address} is up.")
+                        online_hosts += 1
                 else:
-                    print(f"{address} is down")
+                    print(f"{address} is down or unresponsive.")
+            print(f"Total number of online hosts: {online_hosts}")
         else:
             print("No addresses found or invalid network.")
-    
+
     elif choice == '3':
-        # If user chooses to exit
+        # Exit the program
         print("Exiting the program.")
     
     else:
-        # If user enters something other than 1, 2, or 3
+        # Invalid choice entered
         print("Invalid choice.")
 
 # This makes sure the script runs the main function when you run the script
 if __name__ == "__main__":
     main()
-
