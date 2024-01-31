@@ -6,9 +6,10 @@
 
 #!/usr/bin/env python3
 
-# Importing required libraries
-from scapy.all import *  # Scapy for network operations
-import ipaddress  # Used for handling IP addresses
+# Importing the scapy library for network operations
+from scapy.all import *
+# Importing the ipaddress library for handling IP addresses
+import ipaddress  
 
 # Function to get a list of IP addresses in a network
 def list_all_addresses(network):
@@ -35,11 +36,21 @@ def main():
     elif choice == '2':
         # If user chooses ICMP Ping Sweep
         network = input("Enter the network in CIDR format (e.g., 192.168.1.0/24): ")
+        # Get a list of all IP addresses in the given network
         addresses = list_all_addresses(network)
         if addresses:
-            print("IP addresses in the network:")
+            print("Performing ICMP Ping Sweep...")
             for address in addresses:
-                print(address)
+                # Create an ICMP packet destined for the current address
+                packet = IP(dst=str(address))/ICMP()
+                # Send the packet and wait for a response (with a timeout of 1 second)
+                response = sr1(packet, timeout=1, verbose=0)
+                # If a response is received, the host is up
+                if response:
+                    print(f"{address} is up")
+                # If no response is received, the host is down
+                else:
+                    print(f"{address} is down")
         else:
             print("No addresses found or invalid network.")
     
@@ -54,3 +65,4 @@ def main():
 # This makes sure the script runs the main function when you run the script
 if __name__ == "__main__":
     main()
+
