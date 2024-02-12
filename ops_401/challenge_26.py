@@ -2,49 +2,52 @@
 # 02/12/2024
 # Dominique Bruso
 # Purpose: practice python scripting 
-# source: 
+# source: https://dotnettutorials.net/lesson/logging-module-in-python/; https://docs.python.org/3/howto/logging.html#logging-basic-tutorial; https://github.com/codefellows/seattle-cybersecurity-401d10/blob/main/class-26/challenges/DEMO.md; 
 
 #!/usr/bin/env python3
+# ^ Shebang line specifying the interpreter to use
 
-
-# Import libraries
 import logging
-import os
+import paramiko
+import sys
+# ^ Importing necessary modules: logging, paramiko, sys
 
-# Import necessary libraries
-import paramiko  # For SSH connections
-import sys       # For system operations like exiting the script
-from zipfile import ZipFile  # For working with ZIP files
+logging.basicConfig(filename='ssh_attempts.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+# ^ Configuring logging: setting up basic configuration for logging to a file ('ssh_attempts.log'),
+#   with logging level set to INFO, and defining log message format
 
-# Create an SSH client object for SSH connections
-ssh = paramiko.SSHClient()
-ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())  # Automatically accept unknown host keys
+logger = logging.getLogger("ssh_attempts")
+# ^ Creating a logger object named "ssh_attempts"
 
-# Function to attempt SSH connection
 def ssh_connect(host, username, password):
+    ssh = paramiko.SSHClient()
+    ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+    # ^ Creating an SSHClient instance and setting the missing host key policy
+    
     try:
-        ssh.connect(host, port=22, username=username, password=password)  # Try to connect using the provided credentials
-        ssh.close()  # Close the connection after successful login
-        return True  # Return True if login is successful
+        ssh.connect(host, port=22, username=username, password=password)
+        ssh.close()
+        return True
+        # ^ Attempting SSH connection and returning True if successful
     except paramiko.AuthenticationException:
-        return False  # Return False if authentication fails
-    except paramiko.SSHException:
-        ssh.close()  # Ensure connection is closed on exception
-        return False  # Return False if other SSH exceptions occur
+        logger.error(f"Failed SSH attempt: Authentication failed for {username}@{host}")
+        return False
+        # ^ Handling authentication failure, logging error, and returning False
+    except paramiko.SSHException as e:
+        logger.error(f"SSH error occurred: {e}")
+        return False
+        # ^ Handling other SSH exceptions, logging error, and returning False
 
-# Create the log object
-log = logging.getLogger("my_logger")
+def main():
+    host = input("Enter hostname: ")
+    username = input("Enter username: ")
+    password = input("Enter password: ")
+    # ^ Prompting user for hostname, username, and password
+    
+    if ssh_connect(host, username, password):
+        print("SSH connection successful")
+    else:
+        print("SSH connection failed. Check logs for details.")
+    # ^ Calling ssh_connect function with user-provided credentials and printing success or failure message
 
-# Configure my logging object
-logging.basicConfig(logging.basicConfig(filename='sssh_attempts.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s'))
-
-log.critical("CRITICAL ALERT")
-log.warning("WARNING:SSH ATTEMPT")
-
-#Define a function
-def ssh_alerts():
-log.critical("CRITICAL ALERT")
-log.warning("WARNING:SSH ATTEMPT")
-
-#Call our function
-ssh_alerts()
+main()  # Calling the main function directly at the end of the script
