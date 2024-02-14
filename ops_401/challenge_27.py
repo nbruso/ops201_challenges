@@ -1,9 +1,8 @@
-# OPS401D10  Ops Challenge 26
-# 02/12/2024
+# OPS401D10  Ops Challenge 27
+# 02/13/2024
 # Dominique Bruso
 # Purpose: practice python scripting 
 # source: https://dotnettutorials.net/lesson/logging-module-in-python/; https://docs.python.org/3/howto/logging.html#logging-basic-tutorial; https://github.com/codefellows/seattle-cybersecurity-401d10/blob/main/class-26/challenges/DEMO.md;https://chat.openai.com/share/5183f95d-c44b-4361-b6ad-5f9f0a77e87b 
-
 #!/usr/bin/env python3
 # ^ Shebang line specifying the interpreter to use
 
@@ -51,3 +50,5 @@ def main():
     # ^ Calling ssh_connect function with user-provided credentials and printing success or failure message
 
 main()  # Calling the main function directly at the end of the script
+
+# 
