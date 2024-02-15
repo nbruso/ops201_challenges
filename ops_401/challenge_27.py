@@ -51,4 +51,4 @@ def main():
 
 main()  # Calling the main function directly at the end of the script
 
-# 
+# This code creates a RotatingFileHandler object named handler, which rotates the log file named 'ssh_attempts.log' when it reaches a size of 1024 bytes (maxBytes=1024). It keeps a maximum of 5 backup log files (backupCount=5). This means that when the log file reaches the specified size limit, it gets rolled over to a new file, and the old log file is renamed with a suffix, allowing a specified number of backup files to be retained.
