@@ -2,7 +2,7 @@
 # 02/14/2024
 # Dominique Bruso
 # Purpose: practice python scripting 
-# source: https://dotnettutorials.net/lesson/logging-module-in-python/; https://docs.python.org/3/howto/logging.html#logging-basic-tutorial; https://github.com/codefellows/seattle-cybersecurity-401d10/blob/main/class-26/challenges/DEMO.md;https://chat.openai.com/share/5183f95d-c44b-4361-b6ad-5f9f0a77e87b 
+# source: https://dotnettutorials.net/lesson/logging-module-in-python/; https://docs.python.org/3/howto/logging.html#logging-basic-tutorial; https://github.com/codefellows/seattle-cybersecurity-401d10/blob/main/class-26/challenges/DEMO.md;https://chat.openai.com/share/5183f95d-c44b-4361-b6ad-5f9f0a77e87b; https://realpython.com/python-logging/#using-handlers 
 
 #!/usr/bin/env python3
 
