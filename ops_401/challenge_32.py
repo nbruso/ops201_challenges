@@ -2,7 +2,7 @@
 # 02/20/2024
 # Dominique Bruso
 # Purpose: practice python scripting 
-# source: https://docs.python.org/3/library/hashlib.html; https://www.programiz.com/python-programming/examples/hash-file; https://github.com/codefellows/seattle-cybersecurity-401d10/blob/main/class-32/challenges/DEMO.md
+# source: https://docs.python.org/3/library/hashlib.html; https://www.programiz.com/python-programming/examples/hash-file; https://github.com/codefellows/seattle-cybersecurity-401d10/blob/main/class-32/challenges/DEMO.md; https://chat.openai.com/share/8f829f60-4e35-4dca-b668-c112785d1a29
 
 #!/usr/bin/env python3
 
