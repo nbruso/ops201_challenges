@@ -2,7 +2,7 @@
 # 02/21/2024
 # Dominique Bruso
 # Purpose: practice python scripting 
-# source: https://github.com/eduardxyz/virustotal-search/blob/master/virustotal-search.py; https://github.com/codefellows/seattle-cybersecurity-401d10/blob/main/class-33/challenges/DEMO.md
+# source: https://github.com/eduardxyz/virustotal-search/blob/master/virustotal-search.py; https://github.com/codefellows/seattle-cybersecurity-401d10/blob/main/class-33/challenges/DEMO.md; https://chat.openai.com/share/59e013e5-ddcd-48a3-8b2a-4aad4994bf74
 
 #!/usr/bin/env python
 
