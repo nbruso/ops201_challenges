@@ -2,7 +2,7 @@
 # 03/05/2024
 # Dominique Bruso
 # Purpose: practice python scripting 
-# source:https://github.com/codefellows/seattle-cybersecurity-401d10/blob/main/class-42/challenges/DEMO.md
+# source:https://github.com/codefellows/seattle-cybersecurity-401d10/blob/main/class-42/challenges/DEMO.md; https://chat.openai.com/share/b3155b6b-02cd-4c94-ad02-d2c3e3709845
 
 #!/usr/bin/python3
 
